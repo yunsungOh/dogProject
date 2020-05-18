@@ -1,0 +1,178 @@
+@charset "UTF-8";
+body {
+	zoom: 0.75;
+}
+/* Remove the navbar's default rounded borders and increase the bottom margin */
+.navbar {
+	margin-bottom: 50px;
+	border-radius: 0;
+	text-align: center;
+}
+
+/* Remove the jumbotron's default bottom margin */
+.jumbotron {
+	margin-bottom: 0;
+	padding-top: 55px;
+	padding-bottom: 10px;
+	background-color: white;
+} /* 로고 화면  */
+
+/* Add a gray background color and some padding to the footer */
+footer {
+	background-color: black;
+	padding: 25px;
+}
+
+.wrapper {
+	display: inline-block;
+	margin: 0 auto;
+} /* 네비게이션바 중앙 정렬 */
+.navbar {
+	margin-bottom: 0;
+	background-color: black;
+}
+
+.panel-footer {
+	font-weight: bold;
+	text-align: center;
+	font-size: 18px;
+}
+
+/* <!-- 슬라이드 쇼 --> */
+.carousel-inner img {
+	-webkit-filter: grayscale(90%);
+	filter: grayscale(90%); /* make all photos black and white */
+	width: 900px; /* Set width to 100% */
+	margin: auto;
+}
+
+.carousel-caption h3 {
+	color: #fff !important;
+	font-size: 30px;
+}
+
+.carousel-caption {
+	font-size: 17px;
+	font-weight: bold;
+}
+
+@media ( max-width : 600px) {
+	.carousel-caption {
+		display: none;
+		/* Hide the carousel text when the screen is less than 600 pixels wide */
+	}
+}
+
+.item {
+	padding-top: 56.25%; /* 16:9비율*/
+	background-size: cover;
+	background-position: center;
+}
+/*  슬라이드쇼 css끝  */
+
+/* 상품 패널 */
+.panel-body a img:hover {
+	transform: scale(0.8);
+}
+.headermenu form{
+	display: inline-block;
+	
+}
+
+nav {
+	z-index: 9;
+	width: 100%;
+	height: 52px;
+	margin: 0 auto;
+	/* min-width:1200px; */ /*  최소 넓이 1200px */
+}
+
+nav.scroll {
+	position: fixed;
+	top: 55px;
+	transition: 1s;
+}
+
+.top {
+	position: fixed;
+	right: 2%;
+	bottom: 50px;
+	display: none;
+	z-index: 1100;
+}
+
+.content-wrapper {
+	text-align: center;
+	margin-top: 50px;
+}
+
+.content-wrapper h2 {
+	text-align: center;
+}
+.selectWrapper{
+	text-align: right;
+}
+
+#selectOption{
+	width: 120px;
+    height: 25px;
+    font-size: 16px;
+    font-weight: bold;
+}
+#btnOption{
+	height: 25px;
+    line-height: normal;
+    font-weight: bold;
+    width: 70px;
+	
+}
+.list-view {
+	display: inline-block;
+	width: 1200px;
+	min-width: 1200px;
+	border: 4px solid #f3f3f3;
+	border-radius: 30px;
+	margin-bottom: 30px;
+}
+
+.list-view-child {
+	width: 330px;
+	height: 350px;
+	display: inline-table;
+	margin-right: 30px;
+	margin-bottom: 50px;
+	font-size: 17px;
+	font-weight: bold;
+}
+
+.list-view-child div img {
+	width: 250px;
+	height: 300px;
+}
+
+.list-view-child div img:hover {
+	transform: scale(0.9);
+	transition: 0.5s;
+}
+
+.list-view-child div a {
+	color: black;
+	font-size: 19px;
+	font-weight: bold;
+}
+
+h2 img{
+	width: 600px;
+    HEIGHT: 300;
+    MARGIN-TOP: -75;
+    MARGIN-BOTTOM: -45;
+}
+
+.cart-tr th {
+	text-align: center;
+}
+
+.cart td {
+	text-align: center;
+}
+

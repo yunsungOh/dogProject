@@ -1,0 +1,64 @@
+
+
+/************************************************/
+/* Header */
+/************************************************/
+header {
+	padding: 0 2em;
+	position: fixed;
+	top: 0;
+	background-color: white;
+	width: 100%;
+	height: 4em;
+	transition: .15s ease-in-out;
+	z-index: 999;
+}
+
+header.shrink {
+	height: 4em;
+	background-color: black;
+}
+.headermenu ul li a{
+	font-size: 15px;
+	color: black;
+	font-weight: bold;
+}
+.shrink .headermenu ul li a{
+	color: white;
+	
+}
+.headermenu ul {
+	float: right;
+	margin: 0;
+}
+
+header.shrink .headermenu ul li {
+	display: inline;
+	margin-left: 1em;
+	list-style: none;
+	line-height: 4em;
+	transition: .15s ease-in-out;
+}
+
+.headermenu ul li {
+	display: inline;
+	margin-left: 1em;
+	list-style: none;
+	line-height: 4em;
+	transition: .15s ease-in-out;
+}
+
+#logo {
+	position: absolute;
+	top: 50%;
+	transform: translateY(-50%);
+}
+
+/************************************************/
+/* Container */
+/************************************************/
+
+
+/************************************************/
+/* Animations */
+/************************************************/

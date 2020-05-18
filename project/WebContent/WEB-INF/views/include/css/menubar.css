@@ -1,0 +1,100 @@
+@charset "UTF-8";
+html,body{	
+	height:100%;
+}
+a{
+	text-decoration: none;
+	
+}
+a, a:hover, a:active, a:focus {
+    text-decoration: none;
+    color: white;
+}
+
+ul li {
+	list-style: none;
+}x
+ul{
+	margin: 0;
+	padding: 0;
+}
+.header-ul{
+	text-align: right;
+}
+.header-ul-li{
+	display: inline;
+	text-align:center;
+	text-decoration: none;
+	list-style: none;
+	border-right: 1px solid black;
+	padding-right: 0.5rem;
+	padding-left: 0.5rem;
+}
+.logoImage{
+	width: 300px;
+	height:150px;
+}
+.logo{
+	text-align: center;
+}
+
+.menubar {
+	width:100%;
+	background-color:black; 
+	
+	text-align: center;
+}
+.menubar ul{
+	margin: 0 auto;
+	display: inline;
+	font-size: 20px;
+	font-weight: bold;
+	
+}
+.menubar ul li{
+	display:inline-block;
+	list-style: none;
+	position: relative;
+	margin-right:50px;
+	padding: 0;
+	color: white;
+}
+.menubar ul li:hover ul{
+	display: block;
+}
+.menubar ul li a{
+	display: block;
+	fontsize:1rem;
+	padding: 10px 14px;
+	text-decoration: none;
+	 
+} 
+.menubar ul li ul{
+	display: none;
+	position: absolute;
+	background-color: black;	
+	padding:0;
+	border-radius: 0 0 4px 4px;
+	z-index: 999;
+} 
+.menubar ul li ul li a{
+	padding: 8px 14px;
+}
+.menubar ul li ul li{
+	width:200px;
+	text-align: left;	
+}
+.contentIndex{
+	text-align: center;
+	height:150px;
+	padding-top: 50px;
+	font-weight: bold;
+	font-size: 36px;
+}
+.content{
+	width: 1200px;
+	margin: 0 auto;
+}
+table{
+	margin: 0 auto;
+}

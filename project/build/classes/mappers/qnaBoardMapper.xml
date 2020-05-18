@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!-- 다른 mapper와 중복되지 않도록 네임스페이스 기재 -->
+<mapper namespace="qnaboard">
+<select id="listAll"
+resultType="com.example.project.model.qnaboard.dto.QnaBoardDTO">
+		<include refid="paging_header" />
+			select bno,title,writer,username,regdate,viewcnt,show,picture_url
+  				,(select count(*) from qnareply where bno=b.bno) cnt				
+			from qnaboard b, member m
+			<include refid="search" />
+			order by bno desc   
+		<include refid="paging_footer" />
+	</select>
+	<sql id="paging_header">
+		select *
+		from (
+		    select rownum as rn, A.*
+		    from (	
+	</sql>
+	<sql id="paging_footer">
+		    ) A
+		) where rn between #{start} and #{end}	
+	</sql>
+  
+  <insert id="insert">
+    insert into qnaboard (bno,title,content,writer,picture_url) values
+		( seq_qnaboard.nextval, #{title}, #{content}, #{writer}, #{picture_url} )
+  </insert>
+  
+  <!-- 첨부파일 정보 저장 -->
+  <insert id="addAttach">
+    insert into attach (fullName, bno) values
+		( #{fullName}, seq_qnaboard.currval ) 
+  </insert>
+  
+  <!-- 레코드 갯수 계산 -->
+ 	<select id="countArticle" resultType="int">
+		select count(*)
+		from qnaboard b,member m	
+		<include refid="search" />
+	</select>
+
+  <!-- 검색기능, sql태그는 다른 태그에 끼워넣을 수 있는 기능을 가지고 있음 -->
+  	<sql id="search">
+		<choose>
+			<when test="search_option != 'all' ">
+				where b.writer=m.userid 
+				    and show='Y'
+				    and ${search_option} like #{keyword}			
+			</when>
+			<otherwise>
+				where b.writer=m.userid 
+				    and show='Y'
+				    and (username like #{keyword} 
+				        or title like #{keyword}
+				        or content like #{keyword} )			
+			</otherwise>
+		</choose>
+	</sql>
+
+  
+  <!-- 조회수 증가 처리 -->
+  <update id="increateViewcnt">
+    update qnaboard set viewcnt=viewcnt+1
+		where bno=#{bno}
+  </update>
+  
+  <select id="read" 
+  resultType="com.example.project.model.qnaboard.dto.QnaBoardDTO">
+    select bno,title,regdate,content,viewcnt,username,writer ,picture_url
+		from qnaboard b, member m
+		where b.writer=m.userid and bno=#{bno}
+  </select>
+  
+  <!-- 첨부파일 목록 -->
+	<select id="getAttach" resultType="String">
+	  select fullName 
+		from attach
+		where bno=#{bno}
+		order by regdate desc	
+	</select>
+	
+	<!-- 첨부파일 레코드 삭제 -->
+	<delete id="deleteFile">
+	  delete from attach
+		where fullName=#{fullName}
+	</delete>
+	
+	<!-- 게시물 내용 수정 -->
+	<update id="update">
+	  update qnaboard
+		set title=#{title}, content=#{content} ,picture_url = #{picture_url}
+		where bno=#{bno}
+	</update>
+	
+	<!-- 새로운 첨부파일 추가 -->
+	<insert id="updateAttach">
+	  insert into attach (fullName, bno) values
+		( #{fullName}, #{bno} )
+	</insert>
+	
+	<!-- 게시물 삭제 -->
+	<delete id="delete">
+	  update qnaboard set show='N' where bno=#{bno}
+	</delete>
+	
+</mapper>
+
+
+
+
+

@@ -1,0 +1,149 @@
+@charset "UTF-8";
+table {
+	width: 100%;
+	border: 0;
+	border-spacing: 0;
+	border-collapse: collapse;
+	table-layout: fixed;
+	border-top: 1px solid #e6e6e6;
+	border-bottom: 1px solid #e6e6e6;
+	color: #353535;
+	line-height: 180%;
+}
+
+th, td {
+	border: 0;
+	vertical-align: top;
+}
+
+table td {
+	width: auto;
+	padding: 6px 0 4px 10px;
+	border-top: 1px solid #e6e6e6;
+	font-size: 18px;
+	color: #888888;
+	font-weight: bold;
+}
+
+table th {
+	width: 110px;
+	padding: 6px 0 4px 0;
+	border-top: 1px solid #e6e6e6;
+	background-color: #f7f7f7;
+	text-align: center;
+	font-weight: bold;
+	font-size: 18px;
+	color: #454545
+}
+
+#wrap {
+	position: relative;
+	width: 1100px;
+	margin: 0 auto;
+	margin-top: 16px;
+}
+
+#title {
+	margin: 25px 0 25px;
+	text-align: center;
+}
+
+#title h2 {
+	font-size: 50px;
+    font-weight: bold;
+
+	}
+
+
+.detail img {
+	width: 600px;
+	
+	margin: 0 auto;
+    display: table-column-group;
+}
+
+table p {
+	font-size: 20px;
+	font-weight: bold;
+}
+table .subject {
+	word-break: break-all;
+	text-align: left;
+	padding-left: 35px;
+}
+
+table .txtLess {
+	color: #939393;
+	font-size: 11px;
+}
+
+#boardSearchForm {
+	text-align: center;
+}
+
+#write {
+	float: right;
+}
+
+select {
+	height: 24px;
+	border: 1px solid #d5d5d5;
+}
+
+input, select, textarea {
+	font-size: 100%;
+	font-family: Malgun Gothic, "돋움", Dotum;
+	color: #353535;
+	vertical-align: middle;
+	width: 1100px;
+}
+
+#keyword {
+	height: 16px;
+	width: 162px;
+	padding: 3px;
+	border: 1px solid #d5d5d5;
+	color: #2e2e2e;
+}
+
+table tr.main td {
+	padding: 0;
+	border: 0;
+	line-height: 140%;
+}
+
+table tr.view .detail {
+	position: relative;
+	z-index: 2;
+	font-size: 12px;
+	margin: -1px 0 0;
+	padding: 30px 0 30px 20px;
+	border-top: 1px solid #e6e6e6;
+	word-break: break-all;
+	line-height: normal;
+	color: #454545;
+}
+
+table tr.main .detail {
+	position: relative;
+	z-index: 2;
+	font-size: 12px;
+	margin: -1px 0 0;
+	padding: 30px 0 30px 20px;
+	border-top: 1px solid #e6e6e6;
+	word-break: break-all;
+	line-height: normal;
+	color: #454545; 
+}
+	
+.fileDrop { 
+	width : 100px;
+	height: 30px;
+	border: 1px solid gray;
+	float: right;
+}
+#listReply{
+	margin-bottom: 30px;
+	
+}
+

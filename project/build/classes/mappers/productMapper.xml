@@ -1,0 +1,425 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!-- 다른 mapper와 중복되지 않도록 네임스페이스 기재 -->
+<mapper namespace="product">
+
+	<select id="product_list"
+		resultType="com.example.project.model.product.dto.ProductDTO">
+		<include refid="paging_header" />
+		select * from product
+		<include refid="search" />
+		order by product_id desc  
+		<include refid="paging_footer" />
+	</select>
+	<sql id="paging_header">
+		select *
+		from (
+		    select rownum as rn, A.*
+		    from (	
+	</sql>
+	<sql id="paging_footer">
+		    ) A
+		) where rn between #{start} and #{end}	
+	</sql>
+	
+  	<sql id="search">
+		<choose>
+			<when test="search_option != 'all' ">
+				where ${search_option} like #{keyword}			
+			</when>
+			<otherwise>
+				where (product_code like #{keyword}
+				        or product_name like #{keyword}
+				        or product_company like #{keyword} )			
+			</otherwise>
+		</choose>
+	</sql>
+	
+	<select id="product_adminList" 
+		resultType="com.example.project.model.product.dto.ProductDTO">
+		select *from product
+	</select>
+	<select id="product_bestList"
+		resultType="com.example.project.model.product.dto.ProductDTO">
+		select* from product
+			order by product_buy desc
+	</select>
+	
+	<select id="product_list_p"
+		resultType="com.example.project.model.product.dto.ProductDTO">
+		select* from product
+		where product_code = '사료'
+		order by price desc
+	</select>
+	
+	<select id="product_list_p2"
+		resultType="com.example.project.model.product.dto.ProductDTO">
+		select* from product
+		where product_code = '사료'
+		order by price asc
+	</select>
+	
+	<select id="product_list_c"
+		resultType="com.example.project.model.product.dto.ProductDTO">
+		select* from product
+		where product_code = '사료'
+		order by product_company
+	</select>
+	
+	<select id="product_list_n"
+		resultType="com.example.project.model.product.dto.ProductDTO">
+		select* from product
+		where product_code = '사료'
+		order by product_name 
+	</select>
+
+	<select id="product_list_A"
+		resultType="com.example.project.model.product.dto.ProductDTO">
+		select* from product
+		where product_code = '사료'
+	</select>
+
+	<select id="product_list_Ap"
+		resultType="com.example.project.model.product.dto.ProductDTO">
+		select* from product
+		where product_code = '사료'
+		order by price desc
+	</select>
+	
+	<select id="product_list_Ap2"
+		resultType="com.example.project.model.product.dto.ProductDTO">
+		select* from product
+		where product_code = '사료'
+		order by price asc
+	</select>
+	
+	<select id="product_list_Ac"
+		resultType="com.example.project.model.product.dto.ProductDTO">
+		select* from product
+		where product_code = '사료'
+		order by product_company
+	</select>
+	
+	<select id="product_list_An"
+		resultType="com.example.project.model.product.dto.ProductDTO">
+		select* from product
+		where product_code = '사료'
+		order by product_name 
+	</select>
+	
+	
+	
+	
+	<select id="product_list_B"
+		resultType="com.example.project.model.product.dto.ProductDTO">
+		select* from product
+		where product_code = '간식'
+	</select>
+	<select id="product_list_Bp"
+		resultType="com.example.project.model.product.dto.ProductDTO">
+		select* from product
+		where product_code = '간식'
+		order by price desc
+	</select>
+	
+	<select id="product_list_Bp2"
+		resultType="com.example.project.model.product.dto.ProductDTO">
+		select* from product
+		where product_code = '간식'
+		order by price 
+	</select>
+	
+	<select id="product_list_Bc"
+		resultType="com.example.project.model.product.dto.ProductDTO">
+		select* from product
+		where product_code = '간식'
+		order by product_company desc
+	</select>
+	
+	<select id="product_list_Bn"
+		resultType="com.example.project.model.product.dto.ProductDTO">
+		select* from product
+		where product_code = '간식'
+		order by product_name 
+	</select>
+	
+	
+	
+	
+	<select id="product_list_C"
+		resultType="com.example.project.model.product.dto.ProductDTO">
+		select* from product
+		where product_code = '급수기 급식기'
+	</select>
+	<select id="product_list_Cp"
+		resultType="com.example.project.model.product.dto.ProductDTO">
+		select* from product
+		where product_code = '급수기 급식기'
+		order by price desc
+	</select>
+	
+	<select id="product_list_Cp2"
+		resultType="com.example.project.model.product.dto.ProductDTO">
+		select* from product
+		where product_code = '급수기 급식기'
+		order by price asc
+	</select>
+	
+	<select id="product_list_Cc"
+		resultType="com.example.project.model.product.dto.ProductDTO">
+		select* from product
+		where product_code = '급수기 급식기'
+		order by product_company desc
+	</select>
+	
+	<select id="product_list_Cn"
+		resultType="com.example.project.model.product.dto.ProductDTO">
+		select* from product
+		where product_code = '급수기 급식기'
+		order by product_name 
+	</select>
+
+
+
+	<select id="product_list_D"
+		resultType="com.example.project.model.product.dto.ProductDTO">
+		select* from product
+		where product_code = '배변패드'
+	</select>
+	<select id="product_list_Dp"
+		resultType="com.example.project.model.product.dto.ProductDTO">
+		select* from product
+		where product_code = '배변패드'
+		order by
+		price desc
+	</select>
+	
+	<select id="product_list_Dp2"
+		resultType="com.example.project.model.product.dto.ProductDTO">
+		select* from product
+		where product_code = '배변패드'
+		order by price 
+	</select>
+
+	<select id="product_list_Dc"
+		resultType="com.example.project.model.product.dto.ProductDTO">
+		select* from product
+		where product_code = '배변패드'
+		order by
+		product_company desc
+	</select>
+
+	<select id="product_list_Dn"
+		resultType="com.example.project.model.product.dto.ProductDTO">
+		select* from product
+		where product_code = '배변패드'
+		order by
+		product_name
+	</select>
+	
+		<select id="product_list_E"
+		resultType="com.example.project.model.product.dto.ProductDTO">
+		select* from product
+		where product_code = '외출용품'
+	</select>
+	<select id="product_list_Ep"
+		resultType="com.example.project.model.product.dto.ProductDTO">
+		select* from product
+		where product_code = '외출용품'
+		order by
+		price desc
+	</select>
+	
+	<select id="product_list_Ep2"
+		resultType="com.example.project.model.product.dto.ProductDTO">
+		select* from product
+		where product_code = '외출용품'
+		order by price 
+	</select>
+
+	<select id="product_list_Ec"
+		resultType="com.example.project.model.product.dto.ProductDTO">
+		select* from product
+		where product_code = '외출용품'
+		order by
+		product_company desc
+	</select>
+
+	<select id="product_list_En"
+		resultType="com.example.project.model.product.dto.ProductDTO">
+		select* from product
+		where product_code = '외출용품'
+		order by
+		product_name
+	</select>
+	
+			<select id="product_list_F"
+		resultType="com.example.project.model.product.dto.ProductDTO">
+		select* from product
+		where product_code = '하우스'
+	</select>
+	<select id="product_list_Fp"
+		resultType="com.example.project.model.product.dto.ProductDTO">
+		select* from product
+		where product_code = '하우스'
+		order by
+		price desc
+	</select>
+	
+	<select id="product_list_Fp2"
+		resultType="com.example.project.model.product.dto.ProductDTO">
+		select* from product
+		where product_code = '하우스'
+		order by price 
+	</select>
+
+	<select id="product_list_Fc"
+		resultType="com.example.project.model.product.dto.ProductDTO">
+		select* from product
+		where product_code = '하우스'
+		order by
+		product_company desc
+	</select>
+
+	<select id="product_list_Fn"
+		resultType="com.example.project.model.product.dto.ProductDTO">
+		select* from product
+		where product_code = '하우스'
+		order by
+		product_name
+	</select>
+	
+			<select id="product_list_G"
+		resultType="com.example.project.model.product.dto.ProductDTO">
+		select* from product
+		where product_code = '애견 Toy'
+	</select>
+	<select id="product_list_Gp"
+		resultType="com.example.project.model.product.dto.ProductDTO">
+		select* from product
+		where product_code = '애견 Toy'
+		order by
+		price desc
+	</select>
+	
+	<select id="product_list_Gp2"
+		resultType="com.example.project.model.product.dto.ProductDTO">
+		select* from product
+		where product_code = '애견 Toy'
+		order by price 
+	</select>
+
+	<select id="product_list_Gc"
+		resultType="com.example.project.model.product.dto.ProductDTO">
+		select* from product
+		where product_code = '애견 Toy'
+		order by
+		product_company desc
+	</select>
+
+	<select id="product_list_Gn"
+		resultType="com.example.project.model.product.dto.ProductDTO">
+		select* from product
+		where product_code = '애견 Toy'
+		order by
+		product_name
+	</select>
+	
+			<select id="product_list_H"
+		resultType="com.example.project.model.product.dto.ProductDTO">
+		select* from product
+		where product_code = '애견 의류'
+	</select>
+	<select id="product_list_Hp"
+		resultType="com.example.project.model.product.dto.ProductDTO">
+		select* from product
+		where product_code = '애견 의류'
+		order by
+		price desc
+	</select>
+	
+	<select id="product_list_Hp2"
+		resultType="com.example.project.model.product.dto.ProductDTO">
+		select* from product
+		where product_code = '애견 의류'
+		order by price 
+	</select>
+
+	<select id="product_list_Hc"
+		resultType="com.example.project.model.product.dto.ProductDTO">
+		select* from product
+		where product_code = '애견 의류'
+		order by
+		product_company desc
+	</select>
+
+	<select id="product_list_Hn"
+		resultType="com.example.project.model.product.dto.ProductDTO">
+		select* from product
+		where product_code = '애견 의류'
+		order by
+		product_name
+	</select>
+
+
+	<select id="detail_product"
+		resultType="com.example.project.model.product.dto.ProductDTO">
+		select *from product
+		where product_id=#{product_id}
+	</select>
+	<insert id="insert">
+		insert into product
+		values(seq_product.nextval,#{product_code},#{product_name},
+		#{product_company},#{price},
+		#{description},0,
+		#{picture_url},#{picture_url_sub1},#{picture_url_sub2},#{picture_url_sub3},#{picture_url_detail}
+		)
+	</insert>
+
+
+
+  <update id="update_product">
+    update product
+		set
+			product_code=#{product_code}, 
+			product_name=#{product_name}, 
+			product_company=#{product_company}, 
+			price=#{price},
+			description=#{description},
+			picture_url=#{picture_url},
+			picture_url_sub1=#{picture_url_sub1},
+			picture_url_sub2=#{picture_url_sub2},
+			picture_url_sub3=#{picture_url_sub3},
+			picture_url_detail=#{picture_url_detail}
+		where product_id= #{product_id}
+  </update>
+  
+
+  <select id="fileInfo" resultType="String">
+    select picture_url from product
+		where product_id=#{product_id}
+  </select>
+  
+
+  <delete id="product_delete">
+    delete from product
+		where product_id=#{product_id}
+  </delete>
+</mapper>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
